@@ -1,8 +1,8 @@
-import { Flex, SimpleGrid, Text } from "@chakra-ui/react";
+import { HStack, SimpleGrid, Text } from "@chakra-ui/react";
 import useGames from "../hooks/useGames";
 import GameCard from "./GameCard";
-import GameCardSkeleton from "./GameCardSkeleton";
 import GameCardContain from "./GameCardContain";
+import GameCardSkeleton from "./GameCardSkeleton";
 import PlatformSelector from "./PlatformSelector";
 
 const GameGrid = () => {
@@ -11,9 +11,9 @@ const GameGrid = () => {
 
   return (
     <>
-    <Flex>
-      <PlatformSelector/>
-    </Flex>
+      <HStack marginLeft={3} paddingBottom={3}>
+        <PlatformSelector />
+      </HStack>
       {error && <Text>{error.message}</Text>}
       <SimpleGrid columns={{ sm: 1, md: 2, lg: 4 }} spacing={3} padding="10px">
         {isLoading &&

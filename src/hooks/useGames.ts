@@ -8,11 +8,12 @@ const apiClient = new ApiClient<Game>("/games");
 const useGames = () => {
   const gameQuery = useGameQueryStore((s) => s.gameQuery);
   return useQuery<FetchResponse<Game>>({
-    queryKey: ["games",gameQuery],
+    queryKey: ["games", gameQuery],
     queryFn: () =>
       apiClient.getAll({
         params: {
           genres: gameQuery.genreId,
+          parent_platforms: gameQuery.platformId,
         },
       }),
     staleTime: 1000 * 60 * 60 * 24,
