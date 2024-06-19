@@ -12,6 +12,7 @@ import useGameQueryStore from "../stroe";
 
 const GenreList = () => {
   const { data, error, isLoading } = useGenres();
+  const selectedGenreId = useGameQueryStore((s) => s.gameQuery.genreId);
   const setSelectedGenreId = useGameQueryStore((s) => s.setGenreId);
 
   if (error) return null;
@@ -30,6 +31,7 @@ const GenreList = () => {
             <Button
               fontSize="lg"
               variant="link"
+              fontWeight={selectedGenreId === genre.id ? "bold" : "normal"}
               onClick={() => setSelectedGenreId(genre.id)}
             >
               {genre.name}
