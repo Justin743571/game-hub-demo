@@ -4,6 +4,7 @@ import GameCard from "./GameCard";
 import GameCardContain from "./GameCardContain";
 import GameCardSkeleton from "./GameCardSkeleton";
 import PlatformSelector from "./PlatformSelector";
+import SortSelector from "./SortSelector";
 
 const GameGrid = () => {
   const { data, error, isLoading } = useGames();
@@ -13,6 +14,7 @@ const GameGrid = () => {
     <>
       <HStack marginLeft={3} paddingBottom={3}>
         <PlatformSelector />
+        <SortSelector/>
       </HStack>
       {error && <Text>{error.message}</Text>}
       <SimpleGrid columns={{ sm: 1, md: 2, lg: 4 }} spacing={3} padding="10px">
