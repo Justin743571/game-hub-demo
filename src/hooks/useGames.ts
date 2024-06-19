@@ -1,13 +1,21 @@
 import { useQuery } from "@tanstack/react-query";
 import { Game } from "../entities/Game";
 import ApiClient, { FetchResponse } from "../services.ts/api-client";
+import useGameQueryStore from "../stroe";
 
 const apiClient = new ApiClient<Game>("/games");
 
 const useGames = () => {
+  const gameQuery = useGameQueryStore((s) => s.gameQuery);
   return useQuery<FetchResponse<Game>>({
-    queryKey: ["games"],
-    queryFn: apiClient.getAll,
+    queryKey: ["games",gameQuery],
+    queryFn: () =>
+      apiClient.getAll({
+        params: {
+          genres: gameQuery.genreId,
+        },
+      }),
+    staleTime: 1000 * 60 * 60 * 24,
   });
 };
 
