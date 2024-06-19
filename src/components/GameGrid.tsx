@@ -1,22 +1,8 @@
-import { useQuery } from "@tanstack/react-query";
-import apiClient from "../services.ts/api-client";
 import { Text } from "@chakra-ui/react";
-
-interface FetchResponse<T> {
-  count: number;
-  results: T[];
-}
-
-interface Game {
-  id: number;
-  name: string;
-}
+import useGames from "../hooks/useGames";
 
 const GameGrid = () => {
-  const { data, error, isLoading } = useQuery<FetchResponse<Game>>({
-    queryKey: ["games"],
-    queryFn: () => apiClient.get("/games").then((res) => res.data),
-  });
+  const { data, error, isLoading } = useGames();
 
   if (error) return <Text>{error.message}</Text>;
   if (isLoading) return <Text>Loading...</Text>;
