@@ -6,9 +6,10 @@ interface FetchResponse<T> {
   results: T[];
 }
 
-interface Game {
-  id: number;
-  name: string;
+export interface Game {
+  id: number,
+  name: string,
+  background_image:string,
 }
 
 const useGames = () => {
