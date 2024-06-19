@@ -1,23 +1,11 @@
 import { useQuery } from "@tanstack/react-query";
-import apiClient from "../services.ts/api-client";
+import apiClient, { FetchResponse } from "../services.ts/api-client";
+import { Game } from "../entities/Game";
 
-export interface Platform {
-    id:number;
-    name:string;
-    slug:string;
-}
-interface FetchResponse<T> {
-  count: number;
-  results: T[];
-}
 
-export interface Game {
-  id: number;
-  name: string;
-  background_image:string;
-  parent_platforms:{platform:Platform}[];
-  metacritic:number;
-}
+
+
+
 
 const useGames = () => {
   return useQuery<FetchResponse<Game>>({
