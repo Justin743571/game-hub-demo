@@ -13,7 +13,7 @@ const GameCard = ({ game }: Props) => {
     <Card>
       <Image src={game.background_image || noImage} />
       <CardBody>
-        <Flex justify="space-between">
+        <Flex justify="space-between" marginBottom={2}>
           <HStack>
             {game.parent_platforms.map(({ platform }, index) => (
               <PlatformIconList platform={platform} key={index} />

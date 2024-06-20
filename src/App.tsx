@@ -27,16 +27,18 @@ const App = () => {
         </GridItem>
       </Show>
       <GridItem area="main">
-        <Box marginLeft={2}>
-          <GameHeading />
-          <Flex paddingBottom={5}>
-            <HStack marginRight={5}>
-              <PlatformSelector />
-            </HStack>
-            <SortSelector />
-          </Flex>
+        <Box padding={2}>
+          <Box marginLeft={2}>
+            <GameHeading />
+            <Flex paddingBottom={5}>
+              <HStack marginRight={5}>
+                <PlatformSelector />
+              </HStack>
+              <SortSelector />
+            </Flex>
+          </Box>
+          <GameGrid />
         </Box>
-        <GameGrid />
       </GridItem>
     </Grid>
   );
