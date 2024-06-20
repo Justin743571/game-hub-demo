@@ -1,9 +1,10 @@
-import { Flex, Grid, GridItem, HStack, Show } from "@chakra-ui/react";
+import { Box, Flex, Grid, GridItem, HStack, Show } from "@chakra-ui/react";
 import GameGrid from "./components/GameGrid";
 import NavBar from "./components/NavBar";
 import GenreList from "./components/GenreList";
 import PlatformSelector from "./components/PlatformSelector";
 import SortSelector from "./components/SortSelector";
+import GameHeading from "./components/GameHeading";
 
 const App = () => {
   return (
@@ -26,12 +27,15 @@ const App = () => {
         </GridItem>
       </Show>
       <GridItem area="main">
-        <Flex marginLeft={2} paddingBottom={5}>
-          <HStack marginRight={5}>
-            <PlatformSelector />
-          </HStack>
-          <SortSelector />
-        </Flex>
+        <Box marginLeft={2}>
+          <GameHeading />
+          <Flex paddingBottom={5}>
+            <HStack marginRight={5}>
+              <PlatformSelector />
+            </HStack>
+            <SortSelector />
+          </Flex>
+        </Box>
         <GameGrid />
       </GridItem>
     </Grid>
