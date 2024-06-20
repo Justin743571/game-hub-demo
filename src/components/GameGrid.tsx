@@ -12,10 +12,7 @@ const GameGrid = () => {
 
   return (
     <>
-      <HStack marginLeft={3} paddingBottom={3}>
-        <PlatformSelector />
-        <SortSelector/>
-      </HStack>
+
       {error && <Text>{error.message}</Text>}
       <SimpleGrid columns={{ sm: 1, md: 2, lg: 4 }} spacing={3} padding="10px">
         {isLoading &&
