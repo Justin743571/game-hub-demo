@@ -3,6 +3,7 @@ import CriticScore from "./CriticScore";
 import PlatformIconList from "./PlatformIconList";
 import Game from "../entities/Game";
 import noImage from "../assets/no-image-placeholder.webp";
+import Emoji from "./Emoji";
 
 interface Props {
   game: Game;
@@ -22,6 +23,7 @@ const GameCard = ({ game }: Props) => {
           <CriticScore score={game.metacritic} />
         </Flex>
         <Heading fontSize="2xl">{game.name}</Heading>
+        <Emoji rating={game.rating_top} />
       </CardBody>
     </Card>
   );
