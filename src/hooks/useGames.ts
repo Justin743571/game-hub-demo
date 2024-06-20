@@ -15,6 +15,7 @@ const useGames = () => {
           genres: gameQuery.genreId,
           parent_platforms: gameQuery.platformId,
           ordering: gameQuery.sortOrder,
+          search: gameQuery.searchText,
         },
       }),
     staleTime: 1000 * 60 * 60 * 24, //24h
