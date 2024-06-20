@@ -1,18 +1,26 @@
-import { Button, Menu, MenuButton, MenuItem, MenuList, Skeleton } from "@chakra-ui/react";
+import {
+  Button,
+  Menu,
+  MenuButton,
+  MenuItem,
+  MenuList,
+  Skeleton,
+} from "@chakra-ui/react";
 import { BsChevronDown } from "react-icons/bs";
 import usePlatforms from "../hooks/usePlatforms";
 import useGameQueryStore from "../stroe";
+import usePlatform from "../hooks/usePlatform";
 
 const PlatformSelector = () => {
   const { data, error, isLoading } = usePlatforms();
   const selectedPlatformId = useGameQueryStore((s) => s.gameQuery.platformId);
   const setSelectedPlatformId = useGameQueryStore((s) => s.setPlatformId);
 
-  const platform = data?.results.find(platform => platform.id === selectedPlatformId)
+  const platform = usePlatform();
 
   if (error) return null;
 
-  if (isLoading) return <Skeleton height='20px' />
+  if (isLoading) return <Skeleton height="20px" />;
 
   return (
     <Menu>
