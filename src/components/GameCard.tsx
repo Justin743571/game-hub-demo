@@ -4,6 +4,7 @@ import PlatformIconList from "./PlatformIconList";
 import Game from "../entities/Game";
 import noImage from "../assets/no-image-placeholder.webp";
 import Emoji from "./Emoji";
+import { Link } from "react-router-dom";
 
 interface Props {
   game: Game;
@@ -22,7 +23,9 @@ const GameCard = ({ game }: Props) => {
           </HStack>
           <CriticScore score={game.metacritic} />
         </Flex>
-        <Heading fontSize="2xl">{game.name}</Heading>
+        <Heading fontSize="2xl">
+          <Link to={`/games/${game.id}`}>{game.name}</Link>
+        </Heading>
         <Emoji rating={game.rating_top} />
       </CardBody>
     </Card>
