@@ -9,6 +9,7 @@ import {
 } from "@chakra-ui/react";
 import useGenres from "../hooks/useGenres";
 import useGameQueryStore from "../stroe";
+import noImage from "../assets/no-image-placeholder.webp";
 
 const GenreList = () => {
   const { data, error, isLoading } = useGenres();
@@ -26,7 +27,7 @@ const GenreList = () => {
             <Image
               boxSize="32px"
               borderRadius={8}
-              src={genre.image_background}
+              src={genre.image_background || noImage}
             />
             <Button
               fontSize="lg"
